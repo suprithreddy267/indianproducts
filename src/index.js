@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './registerServiceWorker';
 import Products from './products';
 import Naavbar from './navbar';
+import Footerbar from './footerbar';
 
 ReactDOM.render(<div>
   <Naavbar/>
@@ -14,6 +15,7 @@ ReactDOM.render(<div>
         <Route exact path='/add' component={App} />
       </div>
   </Router>
+  <Footerbar/>
   </div>,
   document.getElementById('root')
 );

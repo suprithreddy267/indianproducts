@@ -1,0 +1,21 @@
+body{
+    position: relative;
+}
+.naavbar {
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    position:fixed;
+  }
+
+.footer {
+    flex-shrink: 0;
+    text-align: center;
+    background-color:black;
+    color:cyan;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+  }
