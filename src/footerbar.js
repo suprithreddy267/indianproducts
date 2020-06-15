@@ -16,12 +16,12 @@ export default function Footerbar(){
 			<ul style={{listStyle:"none"}}>
 			<li><a style={{textDecoration:"none",color:'cyan'}} href="/"><h3>Home</h3></a></li>
 			<li><a style={{textDecoration:"none",color:'cyan'}} href="/"><h3>Products</h3></a></li>
-			<li><a style={{textDecoration:"none",color:'cyan'}} href="/blog"><h3>Blog</h3></a></li>
+			<li><a style={{textDecoration:"none",color:'cyan'}} href="/blog/page"><h3>Blog</h3></a></li>
 			</ul>
 		</div>
 		<div style={{width:'30%',padding:'10px',marginLeft:'50px'}}>
 			<div>
-			<a style={{textDecoration:"none",color:'cyan'}} href="/about">About us</a>
+			<a style={{textDecoration:"none",color:'cyan'}} href="/about/us">About us</a>
 			</div>
 			<hr></hr>
 			<div>

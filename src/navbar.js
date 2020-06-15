@@ -29,10 +29,10 @@ export default function Naavbar(){
 			<a style={{textDecoration:"none",color:'cyan'}} href="/"><h3>Products</h3></a>
 		</div>
 		<div style={{width:'10%',marginLeft:'25px'}}>
-		<a style={{textDecoration:"none",color:'cyan'}} href="/about"><h3>About us</h3></a>
+		<a style={{textDecoration:"none",color:'cyan'}} href="/about/us"><h3>About us</h3></a>
 		</div>
 		<div style={{width:'10%',marginLeft:'25px',float:'right'}}>
-		<a style={{textDecoration:"none",color:'cyan'}} href="/blog"><h3>Blog</h3></a>
+		<a style={{textDecoration:"none",color:'cyan'}} href="/blog/page"><h3>Blog</h3></a>
 		</div>
 		
 		
