@@ -28,8 +28,8 @@ export default function App(){
     useEffect(()=>{
 			
         firebase.database().ref("brands").on('value',(snapshot)=>{setdata(snapshot.val())})
-        firebase.database().ref("Products").child("Chinese").on('value',(snapshot)=>{setchinesedata(snapshot.val())})
-		firebase.database().ref("Products").child("Indian").on('value',(snapshot)=>{setindiandata(snapshot.val())})
+        firebase.database().ref("brands").child("Other").on('value',(snapshot)=>{setchinesedata(snapshot.val())})
+		firebase.database().ref("brands").child("Indian").on('value',(snapshot)=>{setindiandata(snapshot.val())})
 	
 	},[])
 	
@@ -59,11 +59,7 @@ export default function App(){
 
 return(<div style={{position:"relative"}}>
         <Naavbar/>
-        <div id="main" style={{position:'fixed',width:"100%",height:'12%',top:'8%',zIndex:8,backgroundColor:'#010203'}}>
-            <div style={{position:'fixed',top:'12%',zIndex:10,paddingLeft:'10%'}}>
-                <Search data={dropdownlist}/>
-            </div>
-         </div> 
+        
   <Router>
       <div style={{float:'left',width:'100%'}}>
       <Switch>
@@ -76,12 +72,20 @@ return(<div style={{position:"relative"}}>
 				<Products data={data}/>
 			</div>
 		  </div> */}
+			<div id="main" style={{position:'fixed',backgroundColor:'black',top:'8%',width:"100%",minHeight:'7%',zIndex:10,alignContent:'center'}}>
+        		    <Search data={dropdownlist}/>
+        	</div> 
             <Products data={data}/>
         </Route>
         <Route exact path='/about' component={About} />
         <Route exact path='/blog' component={Blog} />
         <Route exact path='/add' component={AddProduct} />
         <Route exact path='/:category'>
+		<div id="main" style={{position:'fixed',width:"100%",height:'12%',top:'8%',zIndex:8}}>
+            <div style={{position:'fixed',top:'12%',zIndex:10,paddingLeft:'10%',backgroundColor:'black'}}>
+                <Search data={dropdownlist}/>
+            </div>
+         </div> 
             <Categorypage indiandata={indiandata} chinesedata={chinesedata}/>    
         </Route>
         </Switch>

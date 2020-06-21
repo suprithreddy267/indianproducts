@@ -3,43 +3,13 @@ import firebase from './Firebase';
 import { Badge, Collapse, Button, CardBody, Card,ListGroupItem,ListGroup, Row, Col} from 'reactstrap';
 import BrandCard from './brandcard';
 
+function Drop(props)
+{
+    const [opened,setOpened] = useState(false)
+    let value=props.value
+    let countryData=props.countryData
+    let categories=props.categories
 
-export default function CountryView({country,countryData,categories}){
-
-    const [countrydata,setCountrydata] = useState({})
-    const [openedIndex,setOpenedIndex] = useState(-1)//initially 0th category will be opened
-
-    function displayCategories(){
-        // console.log("mainopened",opened)
-        return categories.map((cat,i)=>{
-            
-            return (
-                
-                    <Row >
-                     <Col xs="6" sm="12">
-                     <div className="text-center">
-                     <Button color="primary" onClick={(e)=>{setOpenedIndex(i)}} value={cat} style={{ marginBottom: '1rem',width:'100%' }}>{cat}</Button>
-                     </div>
-                    <Collapse isOpen={openedIndex==i}>
-                    <div>
-                        <Card >
-                        <CardBody>
-                          <ListGroup >
-                            {displayBrands(cat)}{/*display brands in cat  */}
-                          </ListGroup>
-                        </CardBody>
-                        </Card>
-                    </div>
-                   
-                    </Collapse>
-                     </Col>
-                    </Row>
-                    
-                
-            )
-        }  
-        )
-    }
 
     function displayBrands(cat){
         var brands = countryData[cat];
@@ -48,6 +18,7 @@ export default function CountryView({country,countryData,categories}){
 
         }
         else{
+            
             return Object.keys(brands).map((brand)=>{
                 // console.log("EACHBRAND",brand,cat)
                 return (
@@ -64,9 +35,56 @@ export default function CountryView({country,countryData,categories}){
         
     }
 
+
+    return(<div>
+        <div className="text-center">
+    <button className="dropbutton" onClick={(e)=>{setOpened(!opened)}} value={value} style={{ marginBottom: '1rem',width:'100%' }}><p style={{fontSize:'auto'}}>{value}</p></button>
+    </div>
+   <Collapse isOpen={opened}>
+   <div>
+       <Card >
+       <CardBody>
+         <ListGroup >
+            <ListGroupItem>
+                <h5>Link to {value}..<a href={value}><h5 style={{display:'inline'}}>Link</h5></a></h5>
+            </ListGroupItem>
+           {displayBrands(value)}{/*display brands in cat  */}
+         </ListGroup>
+       </CardBody>
+       </Card>
+   </div>
+   {/* <i class="fas fa-external-link-square-alt"></i> */}
+   </Collapse>
+   </div>)
+
+}
+
+export default function CountryView({country,countryData,categories}){
+
+    const [countrydata,setCountrydata] = useState({})
+
+    function displayCategories(){
+        // console.log("mainopened",opened)
+        return categories.map((cat,i)=>{
+            
+            return (
+                
+                    <Row >
+                     <Col xs="6" sm="12">
+                         <Drop value={cat} countryData={countryData} categories={categories}/>
+                     </Col>
+                    </Row>
+                    
+                
+            )
+        }  
+        )
+    }
+
+
     return(
     <div >
-        <h1 className="text-center"><Badge color="danger" >{country}</Badge></h1>
+        <h1 className="text-center"><Badge color="danger">{country}</Badge></h1>
         {displayCategories()}
     </div>
     )

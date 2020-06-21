@@ -1,26 +1,28 @@
 body{
     position: relative;
-    background-image: url("https://wallpaperaccess.com/full/1267556.jpg");
+    background-image: url('https://sf.co.ua/14/04/wallpaper-716761.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    
 }
 .navitem{
-  height:8%;
-  size:8%;
+  font-size: 1.5em;
   text-decoration:none;
-  color:	#34d6c0;
-  font-weight:3px;
+  color:	ivory;
 }
 .navitem:hover{
-  height:8%;
-  size:8%;
   text-decoration:none;
-  color:		#5078ab;
+  color:black;
   font-weight:3px;
 }
 .naavbar {
     flex-shrink: 0;
-    height:'10%';
+    height:'auto';
+    width:100%;
+    background-color: #353839;
     text-align: center;
-    background-color:#353248;
     color:	#34d6c0;
     position:absolute;
     left:0;
@@ -29,7 +31,8 @@ body{
     position:fixed;
     display:block;
     z-index: 10;
-    border-bottom: 3px solid black;
+    border-bottom: 4px solid white;
+    border-top: 4px solid white;
   }
 
   .center {
@@ -37,7 +40,6 @@ body{
     position: fixed;
     z-index: 7;
     width:100%;
-    background-color: #010203;
   }
 
 .footer {
@@ -52,23 +54,43 @@ body{
     position:fixed;
   }
 
+.dropbutton{
+  color:	#0686CF;
+  background-color: Transparent;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: #0686CF;
+  font-weight: 1000;
+  height:40px;
+  width:15%;
+  font-size: 15px;
+  text-align: center;
+}
+.dropbutton:hover{
+  color:white;
+  background-color:transparent;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
 .searchbutton{
-    color:white;
-    background-color: rgb(0, 0, 0);
+    color:#121371;
+    background-color: ivory;
     border-color: black;
     border: black;
-    border-radius: 20px;
     font-weight: 900;
-    height:40px;
-    width:15%;
+    border-radius: 100%;
+    width:2em;
+    height: 2em;
     font-size: 20px;
-    text-align: center;
 }
 .searchbutton:hover{
     
-    color:black;
-    background-color: cyan;
-    border-radius: 20px;
+    color:ivory;
+    background-color: #121371;
     border-color: black;
     border: black;
     font-weight: 900;
@@ -98,30 +120,11 @@ body{
 }
 
 
-.btn-excel {
-  background-color: #32CD32; /*lime green*/
-  color: #fff;
-  outline: none;
-  border-radius: 0.3rem;
-  text-decoration: none;
-  width: 5rem;
-  height: 2.5rem;
-  /* Flex rules 'em all */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn-excel:hover {
-  background-color: #808000; /*olive*/
-  cursor: pointer;
-  text-decoration: none;
-}
 
 .mainsearch{
-    padding:'10px';
-    background-color: white;
     display:"flex";
     display: block;
+    background-color: BLACK;
     flex-direction:"row";
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-transform: capitalize;
@@ -129,6 +132,7 @@ body{
     position: fixed;
     align-content: center;
     justify-content: center;
+    margin-left: 15%;
 
 }
 .searchbar{
@@ -151,7 +155,7 @@ li{
 
 a{
   text-decoration: none;
-  color:goldenrod;  
+  color:blue;  
   font-size: xx-large;
 }
 a:hover{

@@ -21,18 +21,7 @@ return(
 		value={{label:selectedcategory,value:selectedcategory}}
         theme={theme => ({
           ...theme,
-          borderRadius: 0,
-          colors: {
-            ...theme.primary50,
-            primary: 'black',
-            primary25:'rgb(10,200,256)',
-            primary50: 'teal ',
-            primary75: 'pink ',
-            neutral20: 'black ',
-            neutral0: 'white',
-            danger:'violet',
-    
-          },
+          borderRadius: 20
         })}
        /> 
       </div>
@@ -48,7 +37,7 @@ return(
            {
             window.location.pathname=path}
           }}
-            >Search</button>
+            ><i class="fa fa-search" aria-hidden="true"></i></button>
 
 	</div>
 )

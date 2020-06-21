@@ -44,12 +44,10 @@ function Renderindian(){
 	}
 	return(<div>{list.map((s)=>(
 					<div style={{margin:'5%'}}>
-						<div style={{border:'2px solid green',width:'50%',marginLeft:'25%',borderTopLeftRadius:'20px',borderTopRightRadius:'20px'}}><h3>{s.brandname}</h3></div>
-						<Card style={{border:'2px solid green'}}>
+						<div style={{border:'2px solid #121371',color:'ivory',width:'50%',marginLeft:'25%'}}><h3>{s.brandname}</h3></div>
+						<Card style={{border:'2px solid #121371',height:'auto',width:'auto'}}>
 						{s.products.map((key)=>(
-						<div>
-							<li><a href={key.ProductLink} target="_blank">{key.ProductName}</a></li>
-						</div>
+							<li style={{padding:'5%'}}><a href={key.ProductLink} target="_blank" style={{color:'ivory',fontSize:'auto',fontWeight:'2px'}}>{key.ProductName}</a></li>
 						))}
 						</Card>
 					</div>
@@ -69,14 +67,13 @@ function Renderchinese(){
 		x.push(temp[i][j])
 		list.push({brandname:i,products:x})
 	}
+	// ,borderTopLeftRadius:'20px',borderTopRightRadius:'20px'
 	return(<div>{list.map((s)=>(
 				<div style={{margin:'5%'}}>
-					<div style={{border:'2px solid green',width:'50%',marginLeft:'25%',borderTopLeftRadius:'20px',borderTopRightRadius:'20px'}}><h3>{s.brandname}</h3></div>
-					<Card style={{border:'2px solid green'}}>
+					<div style={{border:'2px solid #121371',color:'ivory',width:'50%',marginLeft:'25%',textAlign:'center'}}><p style={{fontsize:'auto'}}>{s.brandname}</p></div>
+					<Card style={{border:'2px solid #121371',height:'auto',width:'auto'}}>
 					{s.products.map((key)=>(
-					<div>
-						<li><a href={key.ProductLink} target="_blank">{key.ProductName}</a></li>
-					</div>
+						<li style={{padding:'5%'}}><a href={key.ProductLink} target="_blank" style={{color:'ivory',fontSize:'auto',fontWeight:'2px'}}>{key.ProductName}</a></li>
 					))}
 					</Card>
 			</div>
@@ -88,16 +85,16 @@ function Renderchinese(){
 if(loading==true)
 	return(<div style={{marginTop:'19vh'}}>
 			<div class="center">
-  				<h1>{categoryselected}</h1>
+  				<h1 style={{color:'#1b59ce',fontWeight:'5px'}}>{categoryselected}</h1>
 			</div>
 			
-			<div style={{marginTop:'18vh',marginLeft:'10%',marginRight:'10%',border:'2px solid red',float:'left',width:'80%'}}>
+			<div style={{marginTop:'12vh',marginLeft:'10%',marginRight:'10%',border:'2px solid #1f2ea7',float:'left',width:'80%'}}>
 				<div style={{display:'flex',flexDirection:'row'}}>
-					<div style={{width:'50%',marginTop:'5%',marginLeft:'5%',marginRight:'5%',border:'2px solid red'}}>
-						<h3 style={{display: "flex",justifyContent: "center",alignItems: "center"}}>Indian brands</h3>
+					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
+						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Indian brands</h3>
 					</div>
-					<div style={{width:'50%',marginTop:'5%',marginLeft:'5%',marginRight:'5%',border:'2px solid red'}}>
-						<h3 style={{display: "flex",justifyContent: "center",alignItems: "center"}}>Chinese brands</h3>
+					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
+						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Other brands</h3>
 					</div>
 				</div>
 				<div style={{display:'flex',flexDirection:'row'}}>
