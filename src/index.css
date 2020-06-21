@@ -1,13 +1,43 @@
 body{
     position: relative;
+    background-image: url("https://wallpaperaccess.com/full/1267556.jpg");
+}
+.navitem{
+  height:8%;
+  size:8%;
+  text-decoration:none;
+  color:	#34d6c0;
+  font-weight:3px;
+}
+.navitem:hover{
+  height:8%;
+  size:8%;
+  text-decoration:none;
+  color:		#5078ab;
+  font-weight:3px;
 }
 .naavbar {
+    flex-shrink: 0;
+    height:'10%';
+    text-align: center;
+    background-color:#353248;
+    color:	#34d6c0;
     position:absolute;
     left:0;
     top:0;
     right:0;
     position:fixed;
-    display:block
+    display:block;
+    z-index: 10;
+    border-bottom: 3px solid black;
+  }
+
+  .center {
+    text-align: center;
+    position: fixed;
+    z-index: 7;
+    width:100%;
+    background-color: #010203;
   }
 
 .footer {
@@ -22,7 +52,7 @@ body{
     position:fixed;
   }
 
-  .ta-search{
+.searchbutton{
     color:white;
     background-color: rgb(0, 0, 0);
     border-color: black;
@@ -34,7 +64,7 @@ body{
     font-size: 20px;
     text-align: center;
 }
-.ta-search:hover{
+.searchbutton:hover{
     
     color:black;
     background-color: cyan;
@@ -45,7 +75,49 @@ body{
     font-size: 20px;
     text-align: center;
 }
-.sb-main{
+.countrybutton{
+  color:white;
+  background-color: rgb(0, 0, 0);
+  border-color: black;
+  border: black;
+  font-weight: 900;
+  height:40px;
+  width:30%;
+  font-size: 20px;
+  text-align: center;
+}
+
+.countrybutton:hover{
+  color:black;
+  background-color: cyan;
+  border-color: black;
+  border: black;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.btn-excel {
+  background-color: #32CD32; /*lime green*/
+  color: #fff;
+  outline: none;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  width: 5rem;
+  height: 2.5rem;
+  /* Flex rules 'em all */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-excel:hover {
+  background-color: #808000; /*olive*/
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mainsearch{
     padding:'10px';
     background-color: white;
     display:"flex";
@@ -59,9 +131,9 @@ body{
     justify-content: center;
 
 }
-.sb-3{
+.searchbar{
     float: left;
-    width: 75%;    
+    width: 60%;    
     padding-left: 0.5% ;
     padding-right: 0.5% ;
 }

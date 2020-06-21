@@ -11,8 +11,8 @@ function Search(props){
 	var [selectedcategory,setselectedcategory]=useState()
 	
 return(
-<div className="sb-main" >
-		<div className= "sb-3">
+<div className="mainsearch" >
+		<div className= "searchbar">
       	<Select
         size={10}
         defaultValue={{label:"Select Category",value:""}}
@@ -36,7 +36,7 @@ return(
         })}
        /> 
       </div>
-      <button  className="ta-search" onClick={()=>{
+      <button  className="searchbutton" onClick={()=>{
 
 		  let path=""
             if(selectedcategory!==undefined)
