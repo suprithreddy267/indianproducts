@@ -36,10 +36,8 @@ function Drop(props)
     }
 
 
-    return(<div>
-        <div className="text-center">
-    <button className="dropbutton" onClick={(e)=>{setOpened(!opened)}} value={value} style={{ marginBottom: '1rem',width:'100%' }}><p style={{fontSize:'auto'}}>{value}</p></button>
-        </div>
+    return(<div style={{width:'100%',marginBottom:'2vmin'}}> 
+            <button style={{width:'100%'}}className="dropbutton" onClick={(e)=>{setOpened(!opened)}} value={value} ><p style={{fontSize:'auto'}}>{value}</p></button>
    <Collapse isOpen={opened}>
    <div>
        <Card >
@@ -68,12 +66,8 @@ export default function CountryView({country,countryData,categories}){
         return categories.map((cat,i)=>{
             
             return (
-                
-                    <Row >
-                     <Col xs="6" sm="12">
-                         <Drop value={cat} countryData={countryData} categories={categories}/>
-                     </Col>
-                    </Row>
+            
+            <Drop value={cat} countryData={countryData} categories={categories}/>
                     
                 
             )

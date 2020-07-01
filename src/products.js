@@ -49,14 +49,14 @@ function Products(props){
 
 	return(
 	<div style={{width:'100%'}}>
-		<div style={{display:'flex',flexDirection:'row',marginTop:'7em'}}>
-			<div style={{width:'25%',marginLeft:'5%'}}>
+		<div style={{display:'flex',flexDirection:'row',marginLeft:'5%'}}>
+			<div style={{width:'30%',padding:'2%'}}>
 				<CountryView country= {"Chinese"} countryData={chinesedata} categories={categorylist} />
 			</div>
-			<div style={{width:'25%',marginLeft:'5%'}}>
+			<div style={{width:'30%',padding:'2%'}}>
 				<CountryView country= {"Indian"} countryData={indiandata} categories={categorylist} />
 			</div>
-			<div style={{width:'25%',marginLeft:'5%'}}>
+			<div style={{width:'30%',padding:'2%'}}>
 				<CountryView country= {"Other"} countryData={otherdata} categories={categorylist}  />
 			</div>
 			

@@ -12,6 +12,7 @@ import About from './about';
 import Blog from './blog';
 import Search from './search';
 import Products from './products';
+import MainNav from './mainnav';
 
 export default function App(){
 
@@ -57,42 +58,24 @@ export default function App(){
 	},[data])
 
 
-return(<div style={{position:"relative"}}>
-        <Naavbar/>
-        
-  <Router>
-      <div style={{float:'left',width:'100%'}}>
-      <Switch>
-      <Route exact path='/'>
-		  {/* <div style={{display:'flex',flexDirection:'row',marginTop:'18vh'}}>
-			<div style={{width:'20%'}}>
-				<Left brandslist={brandslist} />
-			</div>
-			<div style={{width:'80%'}}>
-				<Products data={data}/>
-			</div>
-		  </div> */}
-			<div id="main" style={{position:'fixed',backgroundColor:'black',top:'8%',width:"100%",minHeight:'7%',zIndex:10,alignContent:'center'}}>
-        		    <Search data={dropdownlist}/>
-        	</div> 
-            <Products data={data}/>
-        </Route>
-        <Route exact path='/about' component={About} />
-        <Route exact path='/blog' component={Blog} />
-        <Route exact path='/add' component={AddProduct} />
-        <Route exact path='/:category'>
-		<div id="main" style={{position:'fixed',width:"100%",height:'12%',top:'8%',zIndex:8}}>
-            <div style={{position:'fixed',top:'12%',zIndex:10,paddingLeft:'10%',backgroundColor:'black'}}>
-                <Search data={dropdownlist}/>
-            </div>
-         </div> 
-            <Categorypage indiandata={indiandata} chinesedata={chinesedata}/>    
-        </Route>
-        </Switch>
-        
-      </div>
-  </Router>
-  {/* <div style={{display:'block'}}><Footerbar/></div> */}
-  
-  </div>)
+	return(<div style={{position:"relative"}}>
+	<MainNav/>
+<Router>
+  <div style={{float:'left',width:'100%'}}>
+  <Switch>
+  	<Route exact path='/'>
+	  <Products data={data}/>
+	</Route>
+	<Route exact path='/about' component={About} />
+	<Route exact path='/blog' component={Blog} />
+	<Route exact path='/add' component={AddProduct} />
+	<Route exact path='/:category'>
+		<Categorypage indiandata={indiandata} chinesedata={chinesedata}/>    
+	</Route>
+	</Switch>
+	
+  </div>
+</Router>
+
+</div>)
 }

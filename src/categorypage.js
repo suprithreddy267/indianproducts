@@ -4,6 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import './index.css'
 import { LoopCircleLoading } from 'react-loadingg';
 import Spinner from 'react-spinkit'
+import { Card } from 'reactstrap';
+import CallToActionIcon from '@material-ui/icons/CallToAction';
+import { Divider } from '@material-ui/core';
 
 function Categorypage(props){
 	var indiandata=props.indiandata
@@ -42,16 +45,18 @@ function Renderindian(){
 		x.push(temp[i][j])
 		list.push({brandname:i,products:x})
 	}
-	return(<div>{list.map((s)=>(
-		<div style={{margin:'5%',backgroundColor:'#e7dfd5',padding:'2%'}}>
-			<div style={{backgroundColor:'#84a9ac',width:'25%',height:'3vmax',padding:'1%',marginBottom:'1%',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
+	return(<div style={{padding:'5%',width:'100%'}}>{list.map((s)=>(
+		<div style={{width:'100%',marginBottom:'8%',border:'2px solid #27496d',borderRadius:'4px'}}>
+			<div style={{backgroundColor:'#84a9ac',width:'100%',padding:'1.5%',height:'3vmax',color:'#204051',fontSize:'large',textAlign:'center'}}><p style={{height:'2em'}}>{s.brandname}</p></div>
 			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-
+				<li><CallToActionIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<Divider/>
+				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<Divider/>
+				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				
 				</div>
 			))}
 			</div>
@@ -59,6 +64,7 @@ function Renderindian(){
 	))}
 
 </div>)
+
 	
 }
 
@@ -73,16 +79,18 @@ function Renderchinese(){
 		list.push({brandname:i,products:x})
 	}
 	// ,borderTopLeftRadius:'20px',borderTopRightRadius:'20px'
-	return(<div style={{margin:'5%',padding:'2%',width:'100%'}}>{list.map((s)=>(
-		<div style={{padding:'1%',width:'100%',margin:'1%',border:'2px solid #e7dfd5',borderRadius:'10px'}}>
-			<div style={{backgroundColor:'#84a9ac',width:'100%',height:'3vmax',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
+	return(<div style={{padding:'5%',width:'100%'}}>{list.map((s)=>(
+		<div style={{width:'100%',marginBottom:'8%',border:'2px solid #27496d',borderRadius:'4px'}}>
+			<div style={{backgroundColor:'#84a9ac',width:'100%',padding:'1.5%',height:'3vmax',color:'#204051',fontSize:'large',textAlign:'center'}}><p style={{height:'2em'}}>{s.brandname}</p></div>
 			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-
+				<li><CallToActionIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<Divider/>
+				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<Divider/>
+				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				
 				</div>
 			))}
 			</div>
@@ -90,15 +98,15 @@ function Renderchinese(){
 	))}
 
 </div>)
+
 	
 }
 if(loading==true)
-	return(<div style={{marginTop:'6vh'}}>
-		{/* <div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'black',padding:'2%'}}>
-			<div className="center">
-  				<h1 style={{color:'#1b59ce',fontWeight:'5px'}}>{categoryselected}</h1>
+	return(<div style={{marginTop:'0vh'}}>
+		<div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'#dae1e7'}}>
+			<div style={{textAlign:'center'}}>
+				<h1 style={{fontSize:'4vmax',color:'#1b59ce'}}>{categoryselected}</h1>
 			</div>
-			<br></br>
 			<div style={{display:'flex',flexDirection:'row'}}>
 					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
 						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Indian brands</h3>
@@ -107,8 +115,9 @@ if(loading==true)
 						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Other brands</h3>
 					</div>
 			</div>
-		</div> */}
-				<div style={{display:'flex',flexDirection:'row'}}>
+		</div>
+		<br></br>
+				<div style={{display:'flex',flexDirection:'row',marginTop:'10vh'}}>
 					<div style={{width:'50%',padding:'2%'}}>
 					{(indianproduct==true)?Renderindian():<div style={{padding:'15%'}}><h1>No products</h1></div>}
 					</div>
@@ -120,7 +129,7 @@ if(loading==true)
 			
 	</div>)
 else
-return(<div style={{marginLeft:'50%',marginTop:'25%'}}>
+return(<div style={{marginLeft:'50%',marginTop:'20%'}}>
 	<Spinner color="#142850" name='double-bounce' />
 </div>)
 }

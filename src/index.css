@@ -4,15 +4,12 @@ body{
 }
 
 .category-link{
-  color:'#142850';
-  font-size:'auto';
-  font-weight:'2px';
-  text-decoration: none;
-  font-size: '0.8rem';
-}
-a:hover{
-  color:rgb(212, 153, 41);
-  text-decoration: none;
+    font-family:verdana, arial, helvetica, sans-serif; 
+    font-size:100%; 
+    font-weight:bold; 
+    font-style:normal; 
+    text-decoration:none;
+    margin-left: 2%;
 }
 .sk-spinner {
   transform: scale(3);
@@ -50,13 +47,6 @@ a:hover{
     border-top: 4px solid white;
   }
 
-  .center {
-    text-align: center;
-    position: fixed;
-    z-index: 7;
-    width:100%;
-  }
-
 .footer {
     flex-shrink: 0;
     text-align: center;
@@ -69,26 +59,17 @@ a:hover{
     position:fixed;
   }
 
+.text-center{
+  width:'100%';
+  padding:'2%';
+  border-radius: 10px;
+}  
 .dropbutton{
-  color:	#0686CF;
-  background-color: '#142850';
-  border-radius: 5px;
-  border-width: 3px;
-  border-color: #0686CF;
-  font-weight: 1000;
-  height:40px;
-  width:15%;
-  font-size: 15px;
   text-align: center;
-}
-.dropbutton:hover{
-  color:white;
-  background-color:transparent;
-  border-radius: 5px;
-  border-width: 3px;
-  border-color: white;
-  font-size: 15px;
-  text-align: center;
+  background-color: #142850;
+  color: #00909e;
+  font-size: 1.5vmax;
+  border-radius:10px;
 }
 
 .searchbutton{
