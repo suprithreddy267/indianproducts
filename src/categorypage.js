@@ -5,26 +5,28 @@ import './index.css'
 import { LoopCircleLoading } from 'react-loadingg';
 import Spinner from 'react-spinkit'
 import { Card } from 'reactstrap';
-import CallToActionIcon from '@material-ui/icons/CallToAction';
+import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import { Divider } from '@material-ui/core';
 
 function Categorypage(props){
 	var indiandata=props.indiandata
 	var chinesedata=props.chinesedata
+	var otherdata=props.otherdata
 	const params=useParams();
 	var categoryselected=params.category
 	var [indianproduct,setindianproduct]=useState(false)
 	var [chineseproduct,setchineseproduct]=useState(false)
+	var [otherproduct,setotherproduct]=useState(false)
 	var [loading,setloading]=useState(false)
 
 
 	
 	useEffect(()=>{
-		if(chinesedata!==undefined&&indiandata!==undefined)
+		if(indiandata!==undefined)
 		{
-			for(let i in chinesedata){
+			for(let i in otherdata){
 				if(i==categoryselected)
-				setchineseproduct(true)
+				setotherproduct(true)
 			}
 			for(let i in indiandata){
 				if(i==categoryselected)
@@ -33,7 +35,7 @@ function Categorypage(props){
 			setloading(true)
 		}
 		
-	},[chinesedata,indiandata])
+	},[otherdata,indiandata])
 
 function Renderindian(){
 	let temp=indiandata[categoryselected]
@@ -46,16 +48,16 @@ function Renderindian(){
 		list.push({brandname:i,products:x})
 	}
 	return(<div style={{padding:'5%',width:'100%'}}>{list.map((s)=>(
-		<div style={{width:'100%',marginBottom:'8%',border:'2px solid #27496d',borderRadius:'4px'}}>
-			<div style={{backgroundColor:'#84a9ac',width:'100%',padding:'1.5%',height:'3vmax',color:'#204051',fontSize:'large',textAlign:'center'}}><p style={{height:'2em'}}>{s.brandname}</p></div>
-			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
+		<div style={{width:'100%',marginBottom:'2vmax',border:'2px solid #27496d',borderRadius:'4px'}}>
+			<div style={{backgroundColor:'#204051',color:'#e7dfd5',width:'100%',padding:'1.5%',fontSize:'5vmax',fontSize:'large',textAlign:'center'}}>{s.brandname}</div>
+			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><CallToActionIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				
 				</div>
 			))}
@@ -63,13 +65,11 @@ function Renderindian(){
 	</div>
 	))}
 
-</div>)
-
-	
+</div>)	
 }
 
-function Renderchinese(){
-	let temp=chinesedata[categoryselected]
+function Renderother(){
+	let temp=otherdata[categoryselected]
 	let list=[]
 	for(let i in temp)
 	{
@@ -80,16 +80,16 @@ function Renderchinese(){
 	}
 	// ,borderTopLeftRadius:'20px',borderTopRightRadius:'20px'
 	return(<div style={{padding:'5%',width:'100%'}}>{list.map((s)=>(
-		<div style={{width:'100%',marginBottom:'8%',border:'2px solid #27496d',borderRadius:'4px'}}>
-			<div style={{backgroundColor:'#84a9ac',width:'100%',padding:'1.5%',height:'3vmax',color:'#204051',fontSize:'large',textAlign:'center'}}><p style={{height:'2em'}}>{s.brandname}</p></div>
-			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
+		<div style={{width:'100%',marginBottom:'2vmax',border:'2px solid #27496d',borderRadius:'4px'}}>
+			<div style={{backgroundColor:'#204051',color:'#e7dfd5',width:'100%',padding:'1.5%',fontSize:'5vmax',fontSize:'large',textAlign:'center'}}>{s.brandname}</div>
+			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><CallToActionIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><CallToActionIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 				
 				</div>
 			))}
@@ -98,35 +98,33 @@ function Renderchinese(){
 	))}
 
 </div>)
-
 	
 }
 if(loading==true)
-	return(<div style={{marginTop:'0vh'}}>
+	return(<div>
 		<div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'#dae1e7'}}>
 			<div style={{textAlign:'center'}}>
-				<h1 style={{fontSize:'4vmax',color:'#1b59ce'}}>{categoryselected}</h1>
+				<h1 style={{fontSize:'3vmax',color:'#1b59ce',fontWeight:'bolder'}}>{categoryselected}</h1>
 			</div>
 			<div style={{display:'flex',flexDirection:'row'}}>
-					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
-						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Indian brands</h3>
+					<div style={{width:'50%',textAlign:'center',fontSize:'2vmax',fontWeight:'bolder',color:'#142850',paddingLeft:'10%',paddingRight:'10%'}}>
+						Indian brands
 					</div>
-					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
-						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Other brands</h3>
+					<div style={{width:'50%',textAlign:'center',fontSize:'2vmax',fontWeight:'bolder',color:'#142850',paddingLeft:'10%',paddingRight:'10%'}}>
+						Other brands
 					</div>
 			</div>
 		</div>
 		<br></br>
-				<div style={{display:'flex',flexDirection:'row',marginTop:'10vh'}}>
-					<div style={{width:'50%',padding:'2%'}}>
+				<div style={{display:'flex',flexDirection:'row',marginTop:'3vmax'}}>
+					<div style={{width:'50%',padding:'2vmax'}}>
 					{(indianproduct==true)?Renderindian():<div style={{padding:'15%'}}><h1>No products</h1></div>}
 					</div>
-					<div style={{width:'50%',padding:'2%'}}>
-					{(chineseproduct==true)?Renderchinese():<div style={{padding:'15%'}}><h1>No products</h1></div>}
+					<div style={{width:'50%',padding:'2vmax'}}>
+					{(otherproduct==true)?Renderother():<div style={{padding:'15%'}}><h1>No products</h1></div>}
 					</div>
 				</div>
 		
-			
 	</div>)
 else
 return(<div style={{marginLeft:'50%',marginTop:'20%'}}>

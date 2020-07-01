@@ -15,6 +15,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'react-router-dom';
+import Search from './search';
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -80,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MainNav() {
+export default function MainNav({categories}) {
+    console.log("IN NAV",categories)
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -136,7 +139,7 @@ export default function MainNav() {
         <IconButton aria-label="show 4 new mails" color="inherit">
         <MailIcon />
         </IconButton>
-        <p><a href="/products" style={{color:"black"}}>Products</a></p>
+        <p><a href="/" style={{color:"black"}}>Products</a></p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -165,10 +168,9 @@ export default function MainNav() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <a href="/" style={{color:"white"}}>Home</a>
-          </Typography>
-          <div className={classes.search}>
+          <Search data={categories}/>
+
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -180,10 +182,13 @@ export default function MainNav() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div> */}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-              <Typography style={{paddingRight:'15px'}}><a href="/products" style={{color:"white"}}>Products</a></Typography>
+          <Typography className={classes.title}  noWrap style={{paddingRight:'15px'}}>
+            <a href="/" style={{color:"white"}}>Home</a>
+          </Typography>
+              <Typography style={{paddingRight:'15px'}}><a href="/" style={{color:"white"}}>Products</a></Typography>
               <Typography style={{paddingRight:'15px'}}><a href="/blog" style={{color:"white"}}>Blog</a></Typography>
               <Typography style={{paddingRight:'15px'}}><a href="/about" style={{color:"white"}}>About</a></Typography>
           </div>

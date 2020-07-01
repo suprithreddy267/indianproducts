@@ -65,20 +65,16 @@ export default function CountryView({country,countryData,categories}){
         // console.log("mainopened",opened)
         return categories.map((cat,i)=>{
             
-            return (
-            
-            <Drop value={cat} countryData={countryData} categories={categories}/>
-                    
-                
-            )
+            return <Drop value={cat} countryData={countryData} categories={categories}/>
         }  
         )
     }
 
 
     return(
-    <div >
-        <h1 className="text-center"><Badge color="danger">{country}</Badge></h1>
+    <div style={{textAlign:"center"}}>
+        
+        
         {displayCategories()}
     </div>
     )

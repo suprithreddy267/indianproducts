@@ -6,42 +6,72 @@ import { LoopCircleLoading } from 'react-loadingg';
 import Select from 'react-select';
 
 function Search(props){
-	let dropdownlist=props.data
-	
-	var [selectedcategory,setselectedcategory]=useState()
+  let dropdownlist=props.data
+  console.log("dropdownlist",dropdownlist)
+
+  var [options,setOptions] = useState([])
+  var [selectedcategory,setselectedcategory]=useState()
+  
+  var colourStyles = {
+    control: styles => ({ ...styles, backgroundColor: 'white' }),
+    option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+      // const color = chroma(data.color);
+      return {
+        ...styles,
+        backgroundColor: isDisabled ? 'red' : '#353839',
+        color: '#FFF',
+        cursor: isDisabled ? 'not-allowed' : 'default',
+      };
+    },
+  };
+
+useEffect(()=>{
+  var x = [];
+  // console.log("propsdataarray",props.data)
+  if(props.data){
+    props.data.map((item)=>{
+      console.log("data",item)
+      x.push({'value':item,'label':item})
+    })
+    console.log("optios",x)
+    setOptions(x)
+  }
+},[props])
+
+  const handleChange = (selectedcat) =>{
+    console.log("Selected",selectedcat)
+    window.location.pathname=selectedcat.value;
+
+  }
 	
 return(
 <div className="mainsearch" >
 		<div className= "searchbar">
-      	<Select
-        size={10}
+       <Select
         defaultValue={{label:"Select Category",value:""}}
-		onChange={(e) => {setselectedcategory(e.value)}}
-		options={dropdownlist}
-		value={{label:selectedcategory,value:selectedcategory}}
-        theme={theme => ({
-          ...theme,
-          borderRadius: 20
-        })}
-       /> 
+        value={selectedcategory}
+        onChange={handleChange}
+        options={options}
+        styles={colourStyles}
+      />
       </div>
-      <button  className="searchbutton" onClick={()=>{
-
-		  let path=""
-            if(selectedcategory!==undefined)
-			path=selectedcategory
-            else
-            alert("Select any Category")
-            
-            if(path!==undefined)
-           {
-            window.location.pathname=path}
-          }}
-            ><i class="fa fa-search" aria-hidden="true"></i></button>
-
 	</div>
 )
 }
 
 export default Search
 
+
+// <button  className="searchbutton" onClick={()=>{
+
+// let path=""
+//       if(selectedcategory!==undefined)
+// path=selectedcategory
+//       else
+//       alert("Select any Category")
+      
+//       if(path!==undefined)
+//      {
+//       window.location.pathname=path}
+//     }}
+//       ><i class="fa fa-search" aria-hidden="true"></i></button>
