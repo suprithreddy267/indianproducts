@@ -39,7 +39,7 @@ function Drop(props)
     return(<div>
         <div className="text-center">
     <button className="dropbutton" onClick={(e)=>{setOpened(!opened)}} value={value} style={{ marginBottom: '1rem',width:'100%' }}><p style={{fontSize:'auto'}}>{value}</p></button>
-    </div>
+        </div>
    <Collapse isOpen={opened}>
    <div>
        <Card >

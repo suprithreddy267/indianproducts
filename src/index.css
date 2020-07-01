@@ -1,11 +1,26 @@
 body{
     position: relative;
-    background-image: url('https://sf.co.ua/14/04/wallpaper-716761.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-color: #dae1e7;  
+}
 
-    
+.category-link{
+  color:'ivory';
+  font-size:'auto';
+  font-weight:'2px';
+  text-decoration: none;
+  font-size: '0.8rem';
+}
+a:hover{
+  color:rgb(212, 153, 41);
+  text-decoration: none;
+}
+.sk-spinner {
+  transform: scale(3);
+}
+.loading-div{
+    background-color: red;
+    margin:'25%';
+  
 }
 .navitem{
   font-size: 1.5em;
@@ -56,7 +71,7 @@ body{
 
 .dropbutton{
   color:	#0686CF;
-  background-color: Transparent;
+  background-color: '#142850';
   border-radius: 5px;
   border-width: 3px;
   border-color: #0686CF;
@@ -153,15 +168,6 @@ li{
   align-items: center
 }
 
-a{
-  text-decoration: none;
-  color:blue;  
-  font-size: xx-large;
-}
-a:hover{
-  color:brown;
-  text-decoration: none;
-}
 
 
 hr{

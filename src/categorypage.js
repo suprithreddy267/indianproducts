@@ -3,7 +3,7 @@ import firebase from './Firebase';
 import { Link, useParams } from 'react-router-dom';
 import './index.css'
 import { LoopCircleLoading } from 'react-loadingg';
-import { Card } from 'reactstrap';
+import Spinner from 'react-spinkit'
 
 function Categorypage(props){
 	var indiandata=props.indiandata
@@ -43,17 +43,22 @@ function Renderindian(){
 		list.push({brandname:i,products:x})
 	}
 	return(<div>{list.map((s)=>(
-					<div style={{margin:'5%'}}>
-						<div style={{border:'2px solid #121371',color:'ivory',width:'50%',marginLeft:'25%'}}><h3>{s.brandname}</h3></div>
-						<Card style={{border:'2px solid #121371',height:'auto',width:'auto'}}>
-						{s.products.map((key)=>(
-							<li style={{padding:'5%'}}><a href={key.ProductLink} target="_blank" style={{color:'ivory',fontSize:'auto',fontWeight:'2px'}}>{key.ProductName}</a></li>
-						))}
-						</Card>
-					</div>
-				))}
-		
-	</div>)
+		<div style={{margin:'5%',backgroundColor:'#e7dfd5',padding:'2%'}}>
+			<div style={{backgroundColor:'#84a9ac',width:'25%',height:'3vmax',padding:'1%',marginBottom:'1%',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
+			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
+			{s.products.map((key)=>(
+				<div>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+
+				</div>
+			))}
+			</div>
+	</div>
+	))}
+
+</div>)
 	
 }
 
@@ -69,13 +74,18 @@ function Renderchinese(){
 	}
 	// ,borderTopLeftRadius:'20px',borderTopRightRadius:'20px'
 	return(<div>{list.map((s)=>(
-				<div style={{margin:'5%'}}>
-					<div style={{border:'2px solid #121371',color:'ivory',width:'50%',marginLeft:'25%',textAlign:'center'}}><p style={{fontsize:'auto'}}>{s.brandname}</p></div>
-					<Card style={{border:'2px solid #121371',height:'auto',width:'auto'}}>
+				<div style={{margin:'5%',backgroundColor:'#27496d',padding:'2%'}}>
+					<div style={{backgroundColor:'#84a9ac',width:'25%',height:'3vmax',padding:'1%',marginBottom:'1%',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
+					<div style={{backgroundColor:'#84a9ac',color:'#142850'}}>
 					{s.products.map((key)=>(
-						<li style={{padding:'5%'}}><a href={key.ProductLink} target="_blank" style={{color:'ivory',fontSize:'auto',fontWeight:'2px'}}>{key.ProductName}</a></li>
+						<div>
+						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+
+						</div>
 					))}
-					</Card>
+					</div>
 			</div>
 			))}
 		
@@ -83,35 +93,35 @@ function Renderchinese(){
 	
 }
 if(loading==true)
-	return(<div style={{marginTop:'19vh'}}>
-			<div class="center">
+	return(<div style={{marginTop:'6vh'}}>
+		<div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'black',padding:'2%'}}>
+			<div className="center">
   				<h1 style={{color:'#1b59ce',fontWeight:'5px'}}>{categoryselected}</h1>
 			</div>
-			
-			<div style={{marginTop:'12vh',marginLeft:'10%',marginRight:'10%',border:'2px solid #1f2ea7',float:'left',width:'80%'}}>
-				<div style={{display:'flex',flexDirection:'row'}}>
+			<br></br>
+			<div style={{display:'flex',flexDirection:'row'}}>
 					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
 						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Indian brands</h3>
 					</div>
 					<div style={{width:'50%',border:'2px solid #671374',textAlign:'center',height:'2%'}}>
 						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Other brands</h3>
 					</div>
-				</div>
+			</div>
+		</div>
 				<div style={{display:'flex',flexDirection:'row'}}>
-					<div style={{width:'50%',marginTop:'5%',marginLeft:'5%',marginRight:'5%'}}>
+					<div style={{width:'50%',padding:'2%'}}>
 					{(indianproduct==true)?Renderindian():<div style={{padding:'15%'}}><h1>No products</h1></div>}
 					</div>
-					<div style={{width:'50%',marginTop:'5%',marginLeft:'5%',marginRight:'5%'}}>
+					<div style={{width:'50%',padding:'2%'}}>
 					{(chineseproduct==true)?Renderchinese():<div style={{padding:'15%'}}><h1>No products</h1></div>}
 					</div>
 				</div>
-			</div>
 		
 			
 	</div>)
 else
-return(<div>
-<LoopCircleLoading />
+return(<div style={{marginLeft:'50%',marginTop:'25%'}}>
+	<Spinner color="#142850" name='double-bounce' />
 </div>)
 }
 
