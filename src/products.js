@@ -49,27 +49,27 @@ function Products(props){
 
 	return(
 	<div style={{width:'100%'}}>
-		<div style={{display:'flex',flexDirection:'row',marginLeft:'5%',position:'fixed',backgroundColor:'#dae1e7',zIndex:'10',width:'100%',height:'4vmax'}}>
-			<div style={{width:'30%',padding:'1%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
+		<div style={{display:'flex',flexDirection:'row',position:'fixed',backgroundColor:'#dae1e7',zIndex:'10',width:'100%',height:'4vmax'}}>
+			<div style={{width:'33%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
 				Chinese
 			</div>
-			<div style={{width:'30%',padding:'1%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
+			<div style={{width:'33%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
 				Indian
 			</div>
-			<div style={{width:'30%',padding:'1%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
+			<div style={{width:'33%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
 				Other
 			</div>
 			
 		</div>
 		<br></br>
-		<div style={{display:'flex',flexDirection:'row',marginLeft:'5%',marginTop:'2vmax'}}>
-			<div style={{width:'30%',padding:'2%'}}>
+		<div style={{display:'flex',flexDirection:'row',margin:'2vmax'}}>
+			<div style={{width:'33%',padding:'2%'}}>
 				<CountryView country= {"Chinese"} countryData={chinesedata} categories={categorylist} />
 			</div>
-			<div style={{width:'30%',padding:'2%'}}>
+			<div style={{width:'33%',padding:'2%'}}>
 				<CountryView country= {"Indian"} countryData={indiandata} categories={categorylist} />
 			</div>
-			<div style={{width:'30%',padding:'2%'}}>
+			<div style={{width:'33%',padding:'2%'}}>
 				<CountryView country= {"Other"} countryData={otherdata} categories={categorylist}  />
 			</div>
 			
