@@ -73,28 +73,28 @@ function Renderchinese(){
 		list.push({brandname:i,products:x})
 	}
 	// ,borderTopLeftRadius:'20px',borderTopRightRadius:'20px'
-	return(<div>{list.map((s)=>(
-				<div style={{margin:'5%',backgroundColor:'#27496d',padding:'2%'}}>
-					<div style={{backgroundColor:'#84a9ac',width:'25%',height:'3vmax',padding:'1%',marginBottom:'1%',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
-					<div style={{backgroundColor:'#84a9ac',color:'#142850'}}>
-					{s.products.map((key)=>(
-						<div>
-						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-						<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+	return(<div style={{margin:'5%',padding:'2%',width:'100%'}}>{list.map((s)=>(
+		<div style={{padding:'1%',width:'100%',margin:'1%',border:'2px solid #e7dfd5',borderRadius:'10px'}}>
+			<div style={{backgroundColor:'#84a9ac',width:'100%',height:'3vmax',color:'#204051',fontSize:'large'}}><p style={{height:'1em'}}>{s.brandname}</p></div>
+			<div style={{backgroundColor:'#204051',color:'#e7dfd5'}}>
+			{s.products.map((key)=>(
+				<div>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
 
-						</div>
-					))}
-					</div>
-			</div>
+				</div>
 			))}
-		
-	</div>)
+			</div>
+	</div>
+	))}
+
+</div>)
 	
 }
 if(loading==true)
 	return(<div style={{marginTop:'6vh'}}>
-		<div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'black',padding:'2%'}}>
+		{/* <div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'black',padding:'2%'}}>
 			<div className="center">
   				<h1 style={{color:'#1b59ce',fontWeight:'5px'}}>{categoryselected}</h1>
 			</div>
@@ -107,7 +107,7 @@ if(loading==true)
 						<h3 style={{color:'#ed4d83',fontSize:'100%'}}>Other brands</h3>
 					</div>
 			</div>
-		</div>
+		</div> */}
 				<div style={{display:'flex',flexDirection:'row'}}>
 					<div style={{width:'50%',padding:'2%'}}>
 					{(indianproduct==true)?Renderindian():<div style={{padding:'15%'}}><h1>No products</h1></div>}

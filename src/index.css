@@ -4,7 +4,7 @@ body{
 }
 
 .category-link{
-  color:'ivory';
+  color:'#142850';
   font-size:'auto';
   font-weight:'2px';
   text-decoration: none;
@@ -169,20 +169,3 @@ li{
 }
 
 
-
-hr{
-	height: 10px;
-	border: 0;
-	box-shadow: 0 10px 10px -10px #8c8b8b inset;
-}
-
-h2{
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-h3{
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
