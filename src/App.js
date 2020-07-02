@@ -29,7 +29,7 @@ export default function App(){
 
     useEffect(()=>{
 			
-		firebase.database().ref("brands").on('value',(snapshot)=>{console.log("In Home",snapshot.val()["Other"]); 
+		firebase.database().ref("test").on('value',(snapshot)=>{console.log("In Home",snapshot.val()["Other"]); 
 		setdata(snapshot.val())
 		setotherdata(snapshot.val()["Other"])
 		setindiandata(snapshot.val()["Indian"])

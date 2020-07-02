@@ -161,6 +161,7 @@ export default function MainNav({categories}) {
     <div className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
+          <a href="/">
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -169,6 +170,7 @@ export default function MainNav({categories}) {
           >
             <MenuIcon />
           </IconButton>
+          </a>
           <Search data={categories}/>
 
           {/* <div className={classes.search}>

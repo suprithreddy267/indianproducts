@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from './Firebase';
-import { Badge, Collapse, Button, CardBody, Card,ListGroupItem,ListGroup, Row, Col} from 'reactstrap';
+import { Badge, Collapse, Button, CardBody, Card,ListGroupItem,ListGroup, Row, Col, CardHeader} from 'reactstrap';
 import BrandCard from './brandcard';
 
 function Drop(props)
@@ -22,13 +22,9 @@ function Drop(props)
             return Object.keys(brands).map((brand)=>{
                 // console.log("EACHBRAND",brand,cat)
                 return (
-                    // <div>
-                        
-                         <ListGroupItem>
-                             <BrandCard category={cat} brand={brand} brandsdata={brands}/>
-                         </ListGroupItem>
-                        
-                    // </div>
+                <ListGroupItem style={{fontSize:'1.75vmax'}}>
+                             {brand}
+                </ListGroupItem>
                 )
             })
         }
@@ -41,11 +37,10 @@ function Drop(props)
    <Collapse isOpen={opened}>
    <div>
        <Card >
-       <CardBody>
-         <ListGroup >
-            <ListGroupItem>
-                <h5>Link to {value}..<a href={value}><h5 style={{display:'inline'}}>Link</h5></a></h5>
-            </ListGroupItem>
+
+        <CardHeader style={{padding:'0%',fontSize:'1.5vmax'}}>Link to {value}..<a href={value}>Link</a></CardHeader>
+       <CardBody style={{padding:'0%'}}>
+         <ListGroup style={{padding:'0%'}}>
            {displayBrands(value)}{/*display brands in cat  */}
          </ListGroup>
        </CardBody>
