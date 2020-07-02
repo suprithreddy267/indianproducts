@@ -17,6 +17,13 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'react-router-dom';
 import Search from './search';
 
+import HomeIcon from '@material-ui/icons/Home'
+import BlogIcon from '@material-ui/icons/Book'
+import ProductsIcon from '@material-ui/icons/Inbox'
+import AboutIcon from '@material-ui/icons/Info'
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -138,19 +145,19 @@ export default function MainNav({categories}) {
     >
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
-        <MailIcon />
+          <ProductsIcon/>
         </IconButton>
         <p><a href="/" style={{color:"black"}}>Products</a></p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
-        <NotificationsIcon />
+        <BlogIcon/>
         </IconButton>
         <p><a href="/blog" style={{color:"black"}}>Blog</a></p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
-        <NotificationsIcon />
+        <AboutIcon/>
         </IconButton>
         <p><a href="/about" style={{color:"black"}}>About</a></p>
       </MenuItem>
@@ -161,31 +168,21 @@ export default function MainNav({categories}) {
     <div className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
-          <a href="/">
+          <a href="/" style={{color:'white'}}>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
+            <HomeIcon/>
+            {/* <img src="./home.png" /> */}
           </IconButton>
           </a>
           <Search data={categories}/>
 
-          {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
+      
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           <Typography className={classes.title}  noWrap style={{paddingRight:'15px'}}>
