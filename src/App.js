@@ -25,26 +25,28 @@ export default function App(){
     var [chinesedata,setchinesedata]=useState()
 	var [indiandata,setindiandata]=useState()
 	var [otherdata,setotherdata]=useState()
+	var [loading,setloading]=useState(true)
+
 
 
     useEffect(()=>{
 			
-		firebase.database().ref("test").on('value',(snapshot)=>{console.log("In Home",snapshot.val()["Other"]); 
+		firebase.database().ref("brands").on('value',(snapshot)=>{ 
 		setdata(snapshot.val())
 		setotherdata(snapshot.val()["Other"])
 		setindiandata(snapshot.val()["Indian"])
+		setloading(false)
 		// setchinesedata(snapshot.val()["Chinese"])
 
 	})
 		
 	},[])
 	
-	useEffect(()=>{
-		if(data!==undefined)
+	if(data!==undefined)
 		{
 		var alllist = [...new Set([...Object.keys(data['Indian']),...Object.keys(data['Other'])])]
-		console.log("Total Data",alllist)
-			setdropdownlist(alllist)
+			dropdownlist=alllist
+			// setdropdownlist(alllist)
 			let brandslist={}
 			for(let v in data){
 				let z=[]
@@ -60,28 +62,24 @@ export default function App(){
 			}
 			brandslist[v]=z
 			}
-			setbrandslist(brandslist)
+			// setbrandslist(brandslist)
+			
 		}
-		
-	},[data])
-
-
 return(<div style={{position:"relative"}}>
         <MainNav categories={dropdownlist}/>
- 	 <Router>
-      <div style={{float:'left',width:'100%'}}>
-      <Switch>
-      <Route exact path='/'><Products data={data}/></Route>
-        <Route exact path='/about' component={About} />
-        <Route exact path='/blog' component={Blog} />
-        <Route exact path='/add' component={AddProduct} />
-        <Route exact path='/:category'>
-            <Categorypage indiandata={indiandata} chinesedata={otherdata} otherdata={otherdata}/>    
-        </Route>
-        </Switch>
-        
-      </div>
-  </Router>
+		<Router>
+      		<Switch>
+      			<Route exact path='/'>
+					  <Products data={data} loading={loading}/>
+				</Route>
+        		<Route exact path='/about' component={About} />
+        		<Route exact path='/blog' component={Blog} />
+        		<Route exact path='/add' component={AddProduct} />
+        		<Route exact path='/:category'>
+        		    <Categorypage indiandata={indiandata} chinesedata={otherdata} otherdata={otherdata}/>    
+        		</Route>
+        	</Switch>
+  		</Router>
   
   </div>)
 }

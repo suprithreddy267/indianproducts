@@ -7,7 +7,6 @@ import Select from 'react-select';
 
 function Search(props){
   let dropdownlist=props.data
-  console.log("dropdownlist",dropdownlist)
 
   var [options,setOptions] = useState([])
   var [selectedcategory,setselectedcategory]=useState()
@@ -30,16 +29,13 @@ useEffect(()=>{
   // console.log("propsdataarray",props.data)
   if(props.data){
     props.data.map((item)=>{
-      console.log("data",item)
       x.push({'value':item,'label':item})
     })
-    console.log("optios",x)
     setOptions(x)
   }
 },[props])
 
   const handleChange = (selectedcat) =>{
-    console.log("Selected",selectedcat)
     window.location.pathname=selectedcat.value;
 
   }

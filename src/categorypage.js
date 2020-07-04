@@ -53,12 +53,8 @@ function Renderindian(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><LabelImportantIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<Divider/>
-				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				
 				</div>
 			))}
 			</div>
@@ -85,12 +81,8 @@ function Renderother(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><LabelImportantIcon/><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
+				<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>
 				<Divider/>
-				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				<Divider/>
-				<li><LabelImportantIcon /><a href={key.ProductLink} target="_blank" className="category-link">{key.ProductName}</a></li>
-				
 				</div>
 			))}
 			</div>
@@ -100,7 +92,7 @@ function Renderother(){
 </div>)
 	
 }
-if(loading==true)
+if(props!=undefined&&loading!=false)
 	return(<div>
 		<div style={{position:'fixed',width:'100%',zIndex:10,backgroundColor:'#dae1e7'}}>
 			<div style={{textAlign:'center'}}>
@@ -118,19 +110,24 @@ if(loading==true)
 		<br></br>
 				<div style={{display:'flex',flexDirection:'row',marginTop:'3vmax'}}>
 					<div style={{width:'50%',padding:'2vmax'}}>
-					{(indianproduct==true)?Renderindian():<div style={{padding:'15%'}}><h1>No products</h1></div>}
+					{(indianproduct==true)?Renderindian():<div style={{padding:'10%',position:'fixed',justifyContent:'center',alignItems:'center',fontSize:'3vmax',fontWeight:'bold',textAlign:'center'}}>NO PRODUCTS FOUND</div>}
 					</div>
 					<div style={{width:'50%',padding:'2vmax'}}>
-					{(otherproduct==true)?Renderother():<div style={{padding:'15%'}}><h1>No products</h1></div>}
+					{(otherproduct==true)?Renderother():<div style={{padding:'10%',position:'fixed',justifyContent:'center',alignItems:'center',fontSize:'3vmax',fontWeight:'bold',textAlign:'center'}}>NO PRODUCTS FOUND</div>}
 					</div>
 				</div>
 		
 	</div>)
 else
-return(<div style={{marginLeft:'50%',marginTop:'20%'}}>
-	<Spinner color="#142850" name='double-bounce' />
+return(
+<div style={{marginTop:'30vh',width:'100%',display:'flex',justifyContent:"center",alignItems: 'center',height:'20vmax'}}>
+<Spinner color="#142850" name='ball-pulse-rise' />
 </div>)
 }
 
 export default Categorypage;
 
+// <Card style={{width:'auto',textAlign:'center',fontSize:'3vmax',height:'20vmax',padding:'2vmax',borderRadius:'30px'}}>
+// 	<h1>Loading {categoryselected} ..</h1>
+// 	<Spinner color="#142850" name='ball-pulse-rise' />
+// </Card>

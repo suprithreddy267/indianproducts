@@ -91,7 +91,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MainNav({categories}) {
-    console.log("IN NAV",categories)
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);

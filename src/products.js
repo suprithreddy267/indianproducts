@@ -3,6 +3,7 @@ import firebase from './Firebase';
 import CountryView from './countryview';
 import { Container, Row, Col } from 'reactstrap';
 import { Badge } from 'reactstrap';
+import Spinner from 'react-spinkit';
 
 
 
@@ -10,6 +11,7 @@ function Products(props){
 
 	// const [maindata,setMaindata] = useState({})
 	let maindata=props.data
+	let loading=props.loading
 	const [categorylist,setCategorylist] = useState([]);
 	const [indiandata,setIndiandata] = useState({});
 	const [chinesedata,setChinesedata] = useState({});
@@ -47,6 +49,7 @@ function Products(props){
 	},[maindata])
 
 
+	if(loading!=true)
 	return(
 	<div style={{width:'100%'}}>
 		<div style={{display:'flex',flexDirection:'row',position:'fixed',backgroundColor:'#dae1e7',zIndex:'10',width:'100%',height:'4vmax'}}>
@@ -74,17 +77,13 @@ function Products(props){
 			</div>
 			
 		</div>
-
-	{/* <Container>
-		
-		<Row>
-        <Col xs="6" sm="4"  ></Col>
-        <Col xs="6" sm="4" ></Col>
-        <Col sm="4" ></Col>
-      	</Row>
-	</Container> */}
 	</div>
 	)
+else
+return(
+<div style={{marginTop:'30vh',width:'100%',display:'flex',justifyContent:"center",alignItems: 'center',height:'20vmax'}}>
+<Spinner color="#142850" name='ball-pulse-rise' />
+</div>)
 }
 
 export default Products;
