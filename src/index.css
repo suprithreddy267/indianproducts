@@ -134,8 +134,8 @@ ul{
 li{
   font-size: large;
   display: flex;
-  justify-content: center;
-  align-items: center
+  /* justify-content: center;
+  align-items: center */
 }
 
 
