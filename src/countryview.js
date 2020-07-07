@@ -32,7 +32,7 @@ function Drop(props)
     }
 
 
-    return(<div style={{width:'100%',marginBottom:'2vmin'}}> 
+    return(<div style={{width:'100%',paddingLeft:'5%',paddingRight:'10%',marginBottom:'2vmin'}}> 
             <button style={{width:'100%'}}className="dropbutton" onClick={(e)=>{setOpened(!opened)}} value={value} ><p style={{fontSize:'auto'}}>{value}</p></button>
    <Collapse isOpen={opened}>
    <div>
