@@ -53,7 +53,8 @@ function Renderindian(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>
+				{(key.ProductId!="")?<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
+				<li><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
 				<Divider/>
 				</div>
 			))}
@@ -81,7 +82,8 @@ function Renderother(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>
+				{(key.ProductId!="")?<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
+				<li><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
 				<Divider/>
 				</div>
 			))}
