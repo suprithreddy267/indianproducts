@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 function About(){
 
@@ -6,6 +7,11 @@ function About(){
 
 	return(
 	<div>
+		<Helmet>
+        
+		<meta name="description" content="Buy Indian products and boycott chinese product.Use only indian products and help india by boosting the economy"
+		 />
+      </Helmet>
 		<div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
 		<img src={require("./gdp.jpg")} width='50%'/>
 		</div>

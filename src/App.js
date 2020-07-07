@@ -13,6 +13,9 @@ import Blog from './blog';
 import Search from './search';
 import Products from './products';
 import MainNav from './mainnav';
+import IndianBrand from './indianbrands';
+import { Helmet } from "react-helmet";
+
 
 export default function App(){
 
@@ -31,7 +34,7 @@ export default function App(){
 
     useEffect(()=>{
 			
-		firebase.database().ref("test2").on('value',(snapshot)=>{ 
+		firebase.database().ref("Brands").on('value',(snapshot)=>{ 
 		setdata(snapshot.val())
 		setotherdata(snapshot.val()["Other"])
 		setindiandata(snapshot.val()["Indian"])
@@ -66,6 +69,10 @@ export default function App(){
 			
 		}
 return(<div style={{position:"relative"}}>
+		<Helmet>
+        <title>Use Products of India</title>
+        <meta name="description" content="A website showing various Indian Products in all possible categories.You can find alternatives to many chinese apps and products.Use Indian Products.#MakeinIndia" />
+      </Helmet>
         <MainNav categories={dropdownlist}/>
 		<Router>
       		<Switch>
@@ -75,6 +82,7 @@ return(<div style={{position:"relative"}}>
         		<Route exact path='/about' component={About} />
         		<Route exact path='/blog' component={Blog} />
         		<Route exact path='/add' component={AddProduct} />
+				<Route exact path='/indianbrands' component={IndianBrand} />
         		<Route exact path='/:category'>
         		    <Categorypage indiandata={indiandata} chinesedata={otherdata} otherdata={otherdata}/>    
         		</Route>
