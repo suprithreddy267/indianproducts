@@ -2,6 +2,22 @@ body{
     position: relative;
     background-color: #dae1e7;  
 }
+::-webkit-scrollbar {
+  width: 5px;
+  background-color:#cbcbb4;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  color:black;
+  background-color: black;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
 
 .noproducts{
   background: url('https://www.mag-manager.com/wp-content/gallery/magento-product-export-to-ebay/no-magento-product-found.jpg');
@@ -131,11 +147,20 @@ ul{
   text-decoration: none;
   list-style: none;
 }
-li{
+.category_list{
   font-size: large;
   display: flex;
   /* justify-content: center;
   align-items: center */
+}
+
+.indianbrandslist{
+  color:'black';
+  text-align:'center';
+  font-size:'1.5vmax';
+  align-items: center;
+  align-content: 'center';
+  
 }
 
 

@@ -53,8 +53,8 @@ function Renderindian(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				{(key.ProductId!="")?<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
-				<li><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
+				{(key.ProductId!="")?<li className="category_list"><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
+				<li className="category_list"><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
 				<Divider/>
 				</div>
 			))}
@@ -82,8 +82,8 @@ function Renderother(){
 			<div style={{backgroundColor:'#e0dede',color:'#204051'}}>
 			{s.products.map((key)=>(
 				<div>
-				{(key.ProductId!="")?<li><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
-				<li><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
+				{(key.ProductId!="")?<li className="category_list"><LabelImportantIcon/><a href={`https://www.amazon.in/gp/product/${key.ProductId}/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=${key.ProductId}&linkCode=as2&tag=mvamsi26-21`} target="_blank" className="category-link">{key.ProductName}</a></li>:
+				<li className="category_list"><LabelImportantIcon/><a href={`https://www.amazon.in/s?k=${key.ProductName}`} target="_blank" className="category-link">{key.ProductName}</a></li>}
 				<Divider/>
 				</div>
 			))}
@@ -123,6 +123,7 @@ if(props!=undefined&&loading!=false)
 else
 return(
 <div style={{marginTop:'30vh',width:'100%',display:'flex',justifyContent:"center",alignItems: 'center',height:'20vmax'}}>
+	
 <Spinner color="#142850" name='ball-pulse-rise' />
 </div>)
 }

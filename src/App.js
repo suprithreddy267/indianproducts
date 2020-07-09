@@ -22,6 +22,7 @@ export default function App(){
     var history=useHistory()
 	var [data,setdata]=useState()
 	var [list,setlist]=useState()
+	var [indianbrands,setindianbrands]=useState()
 	var [categorieslist,setcategorieslist]=useState()
 	var [brandslist,setbrandslist]=useState()
     var [dropdownlist,setdropdownlist]=useState()
@@ -40,8 +41,11 @@ export default function App(){
 		setindiandata(snapshot.val()["Indian"])
 		setloading(false)
 		// setchinesedata(snapshot.val()["Chinese"])
-
 	})
+	firebase.database().ref("allindianbrands").on('value',(snapshot)=>{ 
+		setindianbrands(Object.keys(snapshot.val()))
+	})
+
 		
 	},[])
 	
@@ -77,12 +81,12 @@ return(<div style={{position:"relative"}}>
 		<Router>
       		<Switch>
       			<Route exact path='/'>
-					  <Products data={data} loading={loading}/>
+					  <Products data={data} loading={loading} indianbrands={indianbrands}/>
 				</Route>
         		<Route exact path='/about' component={About} />
         		<Route exact path='/blog' component={Blog} />
         		<Route exact path='/add' component={AddProduct} />
-				<Route exact path='/indianbrands' component={IndianBrand} />
+				{/* <Route exact path='/indianbrands' component={IndianBrand} /> */}
         		<Route exact path='/:category'>
         		    <Categorypage indiandata={indiandata} chinesedata={otherdata} otherdata={otherdata}/>    
         		</Route>

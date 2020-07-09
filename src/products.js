@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import firebase from './Firebase';
 import CountryView from './countryview';
-import { Container, Row, Col } from 'reactstrap';
-import { Badge } from 'reactstrap';
 import Spinner from 'react-spinkit';
+import Select from 'react-select';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -16,6 +15,8 @@ function Products(props){
 	const [indiandata,setIndiandata] = useState({});
 	const [chinesedata,setChinesedata] = useState({});
 	const [otherdata,setOtherdata] = useState({});
+	var [indian,setindian]=useState()
+    var [selectedcategory,setselectedcategory]=useState()
 	var clist = [];
 
 	function loadCountryData(country){
@@ -48,29 +49,78 @@ function Products(props){
 		}
 	},[maindata])
 
+	const Brandsearch= (props) =>{
+        let dropdownlist=props.indianbrands
+		console.log(dropdownlist)
+        var [options,setOptions] = useState([])
+        
+        
+      
+      useEffect(()=>{
+        var x = [];
+        // console.log("propsdataarray",props.data)
+        if(dropdownlist){
+          dropdownlist.map((item)=>{
+            x.push({'value':item,'label':item})
+          })
+          setOptions(x)
+        }
+      },[])
+      
+    if(options!=[])    
+      return(
+      <div className="indianbrandslist" >
+				{options.map((index)=>(
+					<h5 key={index.label}>{index.label}</h5>
+				))}
+          </div>
+	  )
+	else
+	return(<h1>loading</h1>)
+	  }
+	  
 
 	if(loading!=true)
 	return(
 	<div style={{width:'100%'}}>
-		<div style={{display:'flex',flexDirection:'row',position:'fixed',backgroundColor:'#dae1e7',zIndex:'10',width:'100%',height:'4vmax'}}>
-			<div style={{width:'50%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
-				Indian
+		<div style={{display:'flex',flexDirection:'row'}}>
+		
+			<div style={{width:'25%',marginTop:'5%',paddingLeft:'2%'}}>
+				<div style={{position:'fixed',width:'20%',zIndex:10,backgroundColor:'black',color:'#e7dfd5',fontSize:'1vmax',fontSize:'bold',textAlign:'center'}}>
+					List of Indian Brands
+				</div>
+				<div style={{position:'fixed',overflowY:'scroll',overflowX:'hidden',paddingLeft:'1.5%',width:'20%',marginTop:'3vmax',height:'60%',borderRadius:'4px'}}>
+					<Helmet>
+						<title>All Indian Brands</title>
+        				<meta name="description" content="This page shows a list of all indian brands in all different categories" />
+        			</Helmet>
+        			<Brandsearch indianbrands={props.indianbrands} />
+				</div>
 			</div>
-			<div style={{width:'50%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
-				Other
+
+			<div style={{width:'75%',float:'right'}}>
+				<div style={{display:'flex',flexDirection:'row',position:'fixed',backgroundColor:'#dae1e7',zIndex:'10',width:'100%',height:'4.5vmax'}}>
+				<div style={{width:'37%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
+					Indian
+				</div>
+				<div style={{width:'37%',padding:'2%',color:'black',textAlign:'center',fontSize:'2vmax',fontWeight:'bold'}}>
+					Other
+				</div>
+
 			</div>
+			<br></br>
+			<div style={{display:'flex',flexDirection:'row',margin:'2vmax'}}>
+				<div style={{width:'50%',padding:'2%'}}>
+					<CountryView country= {"Indian"} countryData={indiandata} categories={categorylist} />
+				</div>
+				<div style={{width:'50%',padding:'2%'}}>
+					<CountryView country= {"Other"} countryData={otherdata} categories={categorylist}  />
+				</div>
+			</div>
+		</div>
 			
 		</div>
-		<br></br>
-		<div style={{display:'flex',flexDirection:'row',margin:'2vmax'}}>
-			<div style={{width:'50%',padding:'2%'}}>
-				<CountryView country= {"Indian"} countryData={indiandata} categories={categorylist} />
-			</div>
-			<div style={{width:'50%',padding:'2%'}}>
-				<CountryView country= {"Other"} countryData={otherdata} categories={categorylist}  />
-			</div>
-			
-		</div>
+		
 	</div>
 	)
 else
