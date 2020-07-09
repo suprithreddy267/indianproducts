@@ -71,7 +71,7 @@ function Products(props){
       return(
       <div className="indianbrandslist" >
 				{options.map((index)=>(
-					<h5 key={index.label}>{index.label}</h5>
+					<h6 key={index.label}>{index.label}</h6>
 				))}
           </div>
 	  )
